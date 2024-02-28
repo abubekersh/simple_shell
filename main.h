@@ -8,5 +8,16 @@
 #include <string.h>
 #include <errno.h>
 #define  MAX_LENGTH 100
+/**
+ * get_environ - function
+ * Return: char
+ */
+
+char **get_environ(void)
+{
+	extern char **environ;
+
+	return (environ);
+}
 
 #endif

@@ -6,12 +6,13 @@
 
 int main(void)
 {
-	extern char **environ;
+	char **environ;
 	pid_t child;
 	int status;
 	char input[MAX_LENGTH];
 	char *args[2];
 
+	environ = get_environ();
 	while (1)
 	{
 		printf("#cisfun$ ");
