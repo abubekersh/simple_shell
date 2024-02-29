@@ -12,6 +12,7 @@ int main(void)
 	char *args[ARG_SIZE + 1];
 	int i = 0;
 	char *tok;
+	char *end;
 
 	environ = get_environ();
 	while (1)
@@ -23,6 +24,12 @@ int main(void)
 		tok = strtok(input, " ");
 		while (tok != NULL && i < ARG_SIZE)
 		{
+			while (isspace(*tok))
+				tok++;
+			end = tok + strlen(tok) - 1;
+			while (end > tok && isspace(*end))
+				end--;
+			*(end + 1) = '\0';
 			args[i++] = tok;
 			tok = strtok(NULL, " ");
 		}
@@ -44,5 +51,6 @@ int main(void)
 		else
 			wait(&status);
 	}
+	free(environ);
 	return (0);
 }
