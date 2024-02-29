@@ -8,6 +8,7 @@
 #include <string.h>
 #include <errno.h>
 #define  MAX_LENGTH 100
+#define  ARG_SIZE 10
 /**
  * get_environ - function
  * Return: char
